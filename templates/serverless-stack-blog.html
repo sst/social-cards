@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+  </head>
+  <body>
+    <img class="logo" height="55" src="assets/images/logo.svg" />
+    <span class="section">Blog</span>
+    <div class="spacer">
+      <h1 id="title"></h1>
+      <div class="profile">
+        <img id="avatar" width="64" src="" />
+        <span id="author"></span>
+      </div>
+    </div>
+    <a>Read Post</a>
+    <script>
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+
+      document.getElementById("title").innerHTML = params.title;
+      document.getElementById("author").innerHTML = params.author;
+      document.getElementById("avatar").src = `assets/images/profiles/${params.avatar}.png`;
+    </script>
+  </body>
+</html>

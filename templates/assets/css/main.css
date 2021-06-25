@@ -1,0 +1,54 @@
+:root {
+  --text-color: #FFFBF9;
+
+  --accent-color: #E27152;
+  --brand-color: #395C6B;
+}
+
+body {
+  background: var(--accent-color); 
+  color: var(--text-color);
+  overflow: hidden;
+  position: relative;
+  padding: 60px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+}
+
+img.mark {
+  position: absolute;
+  opacity: 0.2;
+  top: -94px;
+  right: -109px;
+}
+
+span.section:before {
+  margin-right: 26px;
+  content: "/";
+  vertical-align: top;
+  opacity: 0.5;
+}
+span.section {
+  margin-left: 20px;
+  font-family: "Source Sans Pro";
+  font-size: 48px;
+  line-height: 49px;
+  vertical-align: top;
+}
+
+a {
+  margin-top: 60px;
+  padding: 19px 36px;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro";
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 16px;
+  line-height: 1.4;
+  color: var(--white-color);
+  background-color: var(--brand-color);
+}

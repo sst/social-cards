@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/post.css">
+  </head>
+  <body>
+    <img class="logo" height="55" src="assets/images/logo.svg" />
+    <span class="section">Examples</span>
+    <div class="spacer">
+      <h1 id="title"></h1>
+    </div>
+    <a>View Example</a>
+    <script>
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+
+      document.getElementById("title").innerHTML = params.title;
+    </script>
+  </body>
+</html>
