@@ -2,7 +2,8 @@ import path from "path";
 import { S3 } from "aws-sdk";
 import chrome from "chrome-aws-lambda";
 
-const ContentType = "image/png";
+const ext = "png";
+const ContentType = `image/${ext}`;
 const Bucket = process.env.BucketName;
 const s3 = new S3({ apiVersion: "2006-03-01" });
 
@@ -10,9 +11,15 @@ const s3 = new S3({ apiVersion: "2006-03-01" });
 const puppeteer = chrome.puppeteer;
 
 export async function handler(event) {
-  const uri = event.requestContext.http.path;
-  // S3 file keys are like paths, we don't want a leading "/"
-  const key = uri.replace(/^\//, "");
+  const pathParameters = parsePathParameters(event.pathParameters.path);
+
+  // Check if it's a valid request
+  if (pathParameters === null) {
+    return createErrorResponse();
+  }
+
+  const options = event.rawQueryString;
+  const key = generateS3Key(pathParameters, options);
 
   // Check the S3 bucket
   const fromBucket = await get(key);
@@ -21,14 +28,6 @@ export async function handler(event) {
   if (fromBucket) {
     return createResponse(fromBucket);
   }
-
-  const pathParameters = parsePathParameters(event.pathParameters.path);
-
-  if (pathParameters === null) {
-    return createErrorResponse();
-  }
-
-  const { title, options, template } = pathParameters;
 
   const browser = await puppeteer.launch({
     args: chrome.args,
@@ -41,6 +40,8 @@ export async function handler(event) {
     width: 1200,
     height: 630,
   });
+
+  const { title, template } = pathParameters;
 
   // Navigate to the url
   await page.goto(
@@ -66,56 +67,43 @@ export async function handler(event) {
  * Route patterns to match:
  *
  * /$template/$title.png
- * /$template/$options/$title.png
+ *
+ * Where $title is a base64 encoded ascii (url encoded) string
  *
  * Returns an object with:
  *
- * { template, options, title }
+ * { template, title }
  *
  */
 function parsePathParameters(path) {
+  const extension = `.${ext}`;
   let parts = path.split("/");
 
-  if (parts.length !== 2 && parts.length !== 3) {
+  if (parts.length !== 2 || !parts[1].endsWith(extension)) {
     return null;
   }
 
-  if (parts.length === 2) {
-    parts = [parts[0], null, parts[1]];
-  }
-
-  if (!parts[2].endsWith(".png")) {
-    return null;
-  }
-
-  const encodedTitle = parts[2].replace(/\.png$/, "");
+  // Remove the .png extension
+  const encodedTitle = parts[1].slice(0, -1 * extension.length);
   const buffer = Buffer.from(encodedTitle, "base64");
 
   return {
     template: parts[0],
-    options: parts[1] ? parseOptions(parts[1]) : "",
     title: decodeURIComponent(buffer.toString("ascii")),
   };
 }
 
 /**
- * Parse a string that looks like:
- *
- * option1_value1-option2_value2
- *
- * Returns a querystring
- *
- * option1=value1&option2=value2
+ * Generate a S3 safe key using the path parameters and query string options
  */
-function parseOptions(optionsStr) {
-  const parts = optionsStr.split("-");
+function generateS3Key({ title, template }, options) {
+  const parts = [
+    template,
+    ...(options !== "" ? [encodeURIComponent(options)] : []),
+    `${encodeURIComponent(title)}.${ext}`,
+  ];
 
-  const options = parts.map((part) => {
-    const [key, value] = part.split("_");
-    return `${key}=${encodeURIComponent(value)}`;
-  });
-
-  return options.join("&");
+  return parts.join("/");
 }
 
 async function upload(Key, Body) {
@@ -135,10 +123,7 @@ async function get(Key) {
     return null;
   }
 
-  const params = {
-    Key,
-    Bucket,
-  };
+  const params = { Key, Bucket };
 
   try {
     const { Body } = await s3.getObject(params).promise();
