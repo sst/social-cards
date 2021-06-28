@@ -7,8 +7,14 @@
   </head>
   <body>
     <img class="mark" width="500" src="assets/images/logomark-white.svg" />
-    <img height="55" src="assets/images/logo.svg" />
-    <h1>A framework that makes<br /> it easy to build serverless apps</h1>
+    <img height="90" src="assets/images/logo.svg" />
+    <h1 id="title"></h1>
     <a>Get Started</a>
+    <script>
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+
+      document.getElementById("title").innerHTML = params.title;
+    </script>
   </body>
 </html>

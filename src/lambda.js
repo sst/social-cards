@@ -11,15 +11,17 @@ const s3 = new S3({ apiVersion: "2006-03-01" });
 const puppeteer = chrome.puppeteer;
 
 export async function handler(event) {
-  const pathParameters = parsePathParameters(event.pathParameters.path);
+  const { file, template } = event.pathParameters;
+
+  const title = parseTitle(file);
 
   // Check if it's a valid request
-  if (pathParameters === null) {
+  if (file === null) {
     return createErrorResponse();
   }
 
   const options = event.rawQueryString;
-  const key = generateS3Key(pathParameters, options);
+  const key = generateS3Key(template, title, options);
 
   // Check the S3 bucket
   const fromBucket = await get(key);
@@ -40,8 +42,6 @@ export async function handler(event) {
     width: 1200,
     height: 630,
   });
-
-  const { title, template } = pathParameters;
 
   // Navigate to the url
   await page.goto(
@@ -64,39 +64,30 @@ export async function handler(event) {
 }
 
 /**
- * Route patterns to match:
+ * Parse a base64 url encoded string of the format
  *
- * /$template/$title.png
- *
- * Where $title is a base64 encoded ascii (url encoded) string
- *
- * Returns an object with:
- *
- * { template, title }
+ * $title.png
  *
  */
-function parsePathParameters(path) {
+function parseTitle(file) {
   const extension = `.${ext}`;
-  let parts = path.split("/");
 
-  if (parts.length !== 2 || !parts[1].endsWith(extension)) {
+  if (!file.endsWith(extension)) {
     return null;
   }
 
   // Remove the .png extension
-  const encodedTitle = parts[1].slice(0, -1 * extension.length);
+  const encodedTitle = file.slice(0, -1 * extension.length);
+
   const buffer = Buffer.from(encodedTitle, "base64");
 
-  return {
-    template: parts[0],
-    title: decodeURIComponent(buffer.toString("ascii")),
-  };
+  return decodeURIComponent(buffer.toString("ascii"));
 }
 
 /**
  * Generate a S3 safe key using the path parameters and query string options
  */
-function generateS3Key({ title, template }, options) {
+function generateS3Key(template, title, options) {
   const parts = [
     template,
     ...(options !== "" ? [encodeURIComponent(options)] : []),
