@@ -20,7 +20,7 @@ Then start the Live Lambda Development environment.
 $ npx sst start
 ```
 
-The templates to generate the share images are stored in [`templates/`](https://github.com/serverless-stack/social-cards/tree/main/templates).
+The templates to generate the share images are stored in [`templates/`](https://github.com/serverless-stack/social-cards/tree/main/templates). And all the non-Latin fonts are placed in [`.fonts/`](https://github.com/serverless-stack/social-cards/tree/main/.fonts).
 
 ## Deploying to Prod
 
