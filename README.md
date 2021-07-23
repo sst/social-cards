@@ -1,4 +1,4 @@
-# Serverless Social Cards
+# Serverless Social Cards [![Seed Status](https://api.seed.run/anomaly/social-cards/stages/prod/build_badge)](https://console.seed.run/anomaly/social-cards)
 
 A serverless app created with [SST](https://github.com/serverless-stack/serverless-stack) that dynamically generates social share or Open Graph (OG) images.
 
