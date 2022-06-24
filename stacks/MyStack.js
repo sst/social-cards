@@ -7,7 +7,7 @@ import { CloudFrontTarget } from "@aws-cdk/aws-route53-targets";
 import { DnsValidatedCertificate } from "@aws-cdk/aws-certificatemanager";
 import * as sst from "@serverless-stack/resources";
 
-const rootDomain = "serverless-stack.com";
+const rootDomain = "sst.dev";
 const domainName = `social-cards.${rootDomain}`;
 const layerArn =
   "arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:22";
