@@ -1,10 +1,10 @@
 # Serverless Social Cards [![Seed Status](https://api.seed.run/anomaly/social-cards/stages/prod/build_badge)](https://console.seed.run/anomaly/social-cards)
 
-A serverless app created with [SST](https://github.com/serverless-stack/serverless-stack) that dynamically generates social share or Open Graph (OG) images.
+A serverless app created with [SST](https://github.com/serverless-stack/sst) that dynamically generates social share or Open Graph (OG) images.
 
 ## Getting Started
 
-Read the guide on how this service is configured and how you can create your own — [**Dynamically generate social share images with serverless**](https://serverless-stack.com/chapters/dynamically-generate-social-share-images-with-serverless.html).
+Read the guide on how this service is configured and how you can create your own — [**Dynamically generate social share images with serverless**](https://sst.dev/chapters/dynamically-generate-social-share-images-with-serverless.html).
 
 ## Running Locally
 
@@ -34,6 +34,6 @@ $ npx sst deploy --stage prod
 
 Learn more about the SST.
 
-- [Docs](https://docs.serverless-stack.com/)
-- [@serverless-stack/cli](https://docs.serverless-stack.com/packages/cli)
-- [@serverless-stack/resources](https://docs.serverless-stack.com/packages/resources)
+- [Docs](https://docs.sst.dev/)
+- [@serverless-stack/cli](https://docs.sst.dev/packages/cli)
+- [@serverless-stack/resources](https://docs.sst.dev/packages/resources)
