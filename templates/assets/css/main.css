@@ -49,6 +49,6 @@ a {
   letter-spacing: 1px;
   border-radius: 16px;
   line-height: 1.4;
-  color: var(--white-color);
+  color: var(--text-color);
   background-color: var(--brand-color);
 }

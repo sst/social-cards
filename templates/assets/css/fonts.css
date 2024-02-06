@@ -34,4 +34,13 @@
   font-weight: 700;
   font-style: normal;
 }
-
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("../fonts/RobotoMono-VariableFont_wght.ttf") format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-VariableFont_wght.ttf") format('truetype');
+  font-style: normal;
+}
