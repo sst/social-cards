@@ -2,8 +2,8 @@ body {
   background:
     radial-gradient(49% 81% at 45% 47%, #52529E45 0%, #073AFF00 100%),
     radial-gradient(113% 91% at 17% -2%, #150E35FF 1%, #FF000000 99%),
-    radial-gradient(142% 91% at 83% 7%, #3B3B6EFF 1%, #FF000000 99%),
-    radial-gradient(142% 91% at -6% 74%, #1A1A4AFF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at 83% 7%, #322212FF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at -6% 74%, #4A311AFF 1%, #FF000000 99%),
     radial-gradient(142% 91% at 111% 84%, #363670FF 0%, #0F0F20FF 100%);
 }
 h1, h2, h3, h4, h5, h6 {
@@ -26,4 +26,5 @@ a {
   font-size: 28px;
   border: 3px solid var(--text-color);
   background: transparent;
+  opacity: 0.65;
 }

@@ -1,10 +1,10 @@
 import path from "path";
 import { S3 } from "aws-sdk";
 import chrome from "chrome-aws-lambda";
+import { Bucket } from "sst/node/bucket";
 
 const ext = "png";
 const ContentType = `image/${ext}`;
-const Bucket = process.env.BucketName;
 const s3 = new S3({ apiVersion: "2006-03-01" });
 
 // chrome-aws-lambda handles loading locally vs from the Layer
@@ -101,8 +101,8 @@ async function upload(Key, Body) {
   const params = {
     Key,
     Body,
-    Bucket,
     ContentType,
+    Bucket: Bucket.WebsiteBucket.bucketName,
   };
 
   await s3.putObject(params).promise();
@@ -114,7 +114,7 @@ async function get(Key) {
     return null;
   }
 
-  const params = { Key, Bucket };
+  const params = { Key, Bucket: Bucket.WebsiteBucket.bucketName };
 
   try {
     const { Body } = await s3.getObject(params).promise();

@@ -6,7 +6,12 @@
 }
 
 body {
-  background: var(--accent-color); 
+  background:
+    radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),
+    radial-gradient(113% 91% at 17% -2%, #FF5A00FF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at 83% 7%, #F3BF6DFF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at -6% 74%, #FF3416FF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at 111% 84%, #E27152FF 0%, #FF0000FF 100%);
   color: var(--text-color);
   overflow: hidden;
   position: relative;
@@ -44,11 +49,13 @@ a {
   text-transform: uppercase;
   font-family: "Source Sans Pro";
   display: inline-block;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: 1px;
   border-radius: 16px;
   line-height: 1.4;
   color: var(--text-color);
-  background-color: var(--brand-color);
+  border: 3px solid var(--text-color);
+  background: transparent;
+  opacity: 0.65;
 }
