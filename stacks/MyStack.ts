@@ -30,11 +30,10 @@ export function MyStack({ stack, app }: StackContext) {
     routes: {
       "GET /{template}/{file}": {
         function: {
-          architecture: "x86_64",
-          runtime: "nodejs18.x",
           handler: "src/lambda.handler",
           // Increase the timeout for generating screenshots
           timeout: "15 minutes",
+          // Increase the memory
           memorySize: "2 GB",
           // Load Chrome in a Layer
           layers: [layerChromium],
