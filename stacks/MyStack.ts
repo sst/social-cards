@@ -1,4 +1,5 @@
 import { Fn, Duration } from "aws-cdk-lib";
+import * as lambda from "aws-cdk-lib/aws-lambda";
 import { Api, Bucket, StackContext } from "sst/constructs";
 import { DnsValidatedCertificate } from "aws-cdk-lib/aws-certificatemanager";
 import * as cf from "aws-cdk-lib/aws-cloudfront";
@@ -17,6 +18,10 @@ export function MyStack({ stack, app }: StackContext) {
 
   const useCustomDomain = app.stage === "prod" || app.stage === "main";
 
+  const layerChromium = new lambda.LayerVersion(stack, "chromiumLayers", {
+    code: lambda.Code.fromAsset("layers/chromium"),
+  });
+
   // Create S3 bucket to store generated images
   const bucket = new Bucket(stack, "WebsiteBucket");
 
@@ -25,16 +30,12 @@ export function MyStack({ stack, app }: StackContext) {
     routes: {
       "GET /{template}/{file}": {
         function: {
+          runtime: "nodejs18.x",
           handler: "src/lambda.handler",
           // Increase the timeout for generating screenshots
           timeout: "15 minutes",
           // Load Chrome in a Layer
-          layers: [layerArn],
-          environment: {
-            // Set $HOME for OS to pick up the non Latin fonts
-            // from the .fonts/ directory
-            HOME: "/var/task",
-          },
+          layers: [layerChromium],
           // Copy over templates and non Latin fonts
           copyFiles: [
             {
@@ -49,7 +50,7 @@ export function MyStack({ stack, app }: StackContext) {
           nodejs: {
             esbuild: {
               // Exclude bundling it in the Lambda function
-              external: ["chrome-aws-lambda"],
+              external: ["@sparticuz/chromium"],
             },
           },
         },
