@@ -25,9 +25,8 @@
   "dependencies": {
     "aws-cdk-lib": "2.124.0",
     "aws-sdk": "^2.932.0",
-    "chrome-aws-lambda": "^9.1.0",
-    "puppeteer": "^9.1.1",
-    "puppeteer-core": "^9.1.0",
+    "puppeteer-core": "20.1.2",
+    "@sparticuz/chromium": "113.0.1",
     "sst": "2.40.1"
   },
   "husky": {

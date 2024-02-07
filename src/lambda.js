@@ -1,14 +1,16 @@
 import path from "path";
 import { S3 } from "aws-sdk";
-import chrome from "chrome-aws-lambda";
+import puppeteer from "puppeteer-core";
 import { Bucket } from "sst/node/bucket";
+import chromium from "@sparticuz/chromium";
 
 const ext = "png";
 const ContentType = `image/${ext}`;
 const s3 = new S3({ apiVersion: "2006-03-01" });
 
-// chrome-aws-lambda handles loading locally vs from the Layer
-const puppeteer = chrome.puppeteer;
+// This is the path to the local Chromium binary
+const YOUR_LOCAL_CHROMIUM_PATH =
+  "/tmp/localChromium/chromium/mac-1165945/chrome-mac/Chromium.app/Contents/MacOS/Chromium";
 
 export async function handler(event) {
   const { file, template } = event.pathParameters;
@@ -32,8 +34,12 @@ export async function handler(event) {
   }
 
   const browser = await puppeteer.launch({
-    args: chrome.args,
-    executablePath: await chrome.executablePath,
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: process.env.IS_LOCAL
+      ? YOUR_LOCAL_CHROMIUM_PATH
+      : await chromium.executablePath(),
+    headless: chromium.headless,
   });
 
   const page = await browser.newPage();
