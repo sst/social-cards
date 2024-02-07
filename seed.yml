@@ -1,0 +1,2 @@
+before_compile:
+  - cd layers/chromium && npm install
