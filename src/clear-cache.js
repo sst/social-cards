@@ -88,6 +88,6 @@ async function invalidateEntireDistribution(distributionId) {
     const data = await cloudfront.createInvalidation(params).promise();
     console.log(data);
   } catch (err) {
-    console.log(err, err.stack);
+    console.error("Error invalidating distribution", err);
   }
 }

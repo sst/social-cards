@@ -110,6 +110,7 @@ export function MyStack({ stack, app }: StackContext) {
   // Create Function to clear the cache
   const clearFunction = new Function(stack, "ClearCache", {
     handler: "src/clear-cache.handler",
+    permissions: ["cloudfront:CreateInvalidation"],
   });
 
   clearFunction.bind([
