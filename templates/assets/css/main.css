@@ -7,11 +7,11 @@
 
 body {
   background:
-    radial-gradient(49% 81% at 45% 47%, #FFE20345 0%, #073AFF00 100%),
+    radial-gradient(49% 81% at 45% 47%, #FFE20312 0%, #073AFF00 100%),
     radial-gradient(113% 91% at 17% -2%, #FF5A00FF 1%, #FF000000 99%),
-    radial-gradient(142% 91% at 83% 7%, #F3BF6DFF 1%, #FF000000 99%),
-    radial-gradient(142% 91% at -6% 74%, #FF3416FF 1%, #FF000000 99%),
-    radial-gradient(142% 91% at 111% 84%, #E27152FF 0%, #FF0000FF 100%);
+    radial-gradient(142% 91% at 83% 7%, #E49079FF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at -6% 74%, #DA532EFF 1%, #FF000000 99%),
+    radial-gradient(142% 91% at 111% 84%, #E27152FF 0%, #F33A07FF 100%);
   color: var(--text-color);
   overflow: hidden;
   position: relative;
