@@ -38,6 +38,12 @@ Deploy your service to prod by running.
 $ npx sst deploy --stage prod
 ```
 
+To clear the cache of generated images, invoke the `clear-cache.handler` with the following payload.
+
+```json
+{"path":"<template-name>/"}
+```
+
 ## Documentation
 
 Learn more about the SST.

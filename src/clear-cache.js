@@ -1,12 +1,15 @@
-import { S3 } from "aws-sdk";
+import { S3, CloudFront } from "aws-sdk";
 import { Bucket } from "sst/node/bucket";
+import { Config } from "sst/node/config";
 
+const cloudfront = new CloudFront();
 const s3 = new S3({ apiVersion: "2006-03-01" });
 
 export async function handler(event) {
   const path = event.path; // Ensure this ends with a slash
 
   await emptyS3Folder(path);
+  await invalidateEntireDistribution(Config.distributionId);
 }
 
 async function emptyS3Folder(path) {
@@ -65,4 +68,26 @@ function deleteObjects(objects) {
       }
     });
   });
+}
+
+async function invalidateEntireDistribution(distributionId) {
+  const params = {
+    DistributionId: distributionId,
+    InvalidationBatch: {
+      CallerReference: `invalidate-entire-distribution-${Date.now()}`,
+      Paths: {
+        Quantity: 1,
+        Items: [
+          "/*", // This specifies that everything in the distribution should be invalidated
+        ],
+      },
+    },
+  };
+
+  try {
+    const data = await cloudfront.createInvalidation(params).promise();
+    console.log(data);
+  } catch (err) {
+    console.log(err, err.stack);
+  }
 }

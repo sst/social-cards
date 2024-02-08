@@ -1,6 +1,6 @@
 import { Fn, Duration } from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
-import { Api, Bucket, Function, StackContext } from "sst/constructs";
+import { Api, Bucket, Config, Function, StackContext } from "sst/constructs";
 import { DnsValidatedCertificate } from "aws-cdk-lib/aws-certificatemanager";
 import * as cf from "aws-cdk-lib/aws-cloudfront";
 import * as route53 from "aws-cdk-lib/aws-route53";
@@ -61,13 +61,6 @@ export function MyStack({ stack, app }: StackContext) {
 
   api.bind([bucket]);
 
-  // Create Function to clear the cache
-  const clearFunction = new Function(stack, "ClearCache", {
-    handler: "src/clear-cache.handler",
-  });
-
-  clearFunction.bind([bucket]);
-
   if (useCustomDomain) {
     // Lookup domain hosted zone
     hostedZone = route53.HostedZone.fromLookup(stack, "HostedZone", {
@@ -113,6 +106,18 @@ export function MyStack({ stack, app }: StackContext) {
       ),
     });
   }
+
+  // Create Function to clear the cache
+  const clearFunction = new Function(stack, "ClearCache", {
+    handler: "src/clear-cache.handler",
+  });
+
+  clearFunction.bind([
+    bucket,
+    new Config.Parameter(stack, "distributionId", {
+      value: distribution.distributionId,
+    }),
+  ]);
 
   // Show the endpoint in the output
   stack.addOutputs({
