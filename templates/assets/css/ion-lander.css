@@ -1,0 +1,18 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+.logo span {
+  font-size: 48px;
+  line-height: 48px;
+  opacity: 0.3;
+}
+.logo img:last-child {
+  margin-top: -4px;
+  opacity: 0.4;
+}
+h1 {
+  max-width: 840px;
+  margin-bottom: 50px;
+}
