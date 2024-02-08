@@ -6,6 +6,8 @@ A serverless app created with [SST](https://github.com/sst/sst) that dynamically
 
 Read the guide on how this service is configured and how you can create your own — [**Dynamically generate social share images with serverless**](https://sst.dev/chapters/dynamically-generate-social-share-images-with-serverless.html).
 
+You can also reference the [example on using the Chromium Lambda Layer](https://sst.dev/examples/how-to-use-lambda-layers-in-your-serverless-app.html).
+
 ## Running Locally
 
 Start by installing the dependencies.
