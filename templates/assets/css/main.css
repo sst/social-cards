@@ -57,5 +57,5 @@ a {
   color: var(--text-color);
   border: 3px solid var(--text-color);
   background: transparent;
-  opacity: 0.65;
+  opacity: 0.85;
 }
