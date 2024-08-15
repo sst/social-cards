@@ -46,8 +46,4 @@ To clear the cache of generated images, invoke the `clear-cache.handler` with th
 
 ## Documentation
 
-Learn more about the SST.
-
-- [Docs](https://docs.sst.dev/)
-- [SST CLI](https://docs.sst.dev/packages/sst)
-- [SST Constructs](https://docs.sst.dev/constructs)
+[Learn more about the SST](https://sst.dev).

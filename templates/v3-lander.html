@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/lander.css">
+    <link rel="stylesheet" href="assets/css/v3.css">
+    <link rel="stylesheet" href="assets/css/v3-lander.css">
+  </head>
+  <body>
+    <img class="mark" width="500" src="assets/images/logomark-white.svg" />
+    <div class="logo">
+      <img height="38" src="assets/images/logo-white.svg" />
+    </div>
+    <h1 id="title"></h1>
+    <a>Learn more</a>
+    <script>
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+
+      document.getElementById("title").innerHTML = params.title;
+    </script>
+  </body>
+</html>
+
+
