@@ -124,8 +124,7 @@ export function MyStack({ stack, app }: StackContext) {
   stack.addOutputs({
     ApiEndpoint: api.url,
     BucketName: bucket.bucketName,
-    SiteEndpoint: `https://${
-      useCustomDomain ? domainName : distribution.distributionDomainName
-    }`,
+    SiteEndpoint: `https://${useCustomDomain ? domainName : distribution.distributionDomainName
+      }`,
   });
 }

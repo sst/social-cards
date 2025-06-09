@@ -1,0 +1,72 @@
+:root {
+  --text-color: #FFF;
+  --background-color: black;
+}
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: "SF Mono", serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+div.container {
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  padding-top: 20vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 80vw;
+
+  h1 {
+    font-size: 3rem;
+    letter-spacing: -0.05rem;
+    line-height: 1.1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .stats {
+    font-size: 1.25rem;
+
+    p {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    label {
+      width: 65px;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+  }
+}
+footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    img {
+    }
+  }
+  .right {
+    text-transform: uppercase;
+  }
+}

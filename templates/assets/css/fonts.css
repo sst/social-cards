@@ -44,3 +44,21 @@
   src: url("../fonts/Rubik-VariableFont_wght.ttf") format('truetype');
   font-style: normal;
 }
+@font-face {
+  font-family: "SF Mono";
+  src: url("../fonts/SFMono-Regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Mono";
+  src: url("../fonts/SFMono-Semibold.otf") format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SF Mono";
+  src: url("../fonts/SFMono-Bold.otf") format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
