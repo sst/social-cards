@@ -34,7 +34,7 @@ main h1 {
   line-height: 1.15;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 main .stats {
