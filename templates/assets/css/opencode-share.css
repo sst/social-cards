@@ -6,10 +6,10 @@
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: "Rubik", monospace;
+  font-family: "SF Mono", monospace;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -1px;
 }
 
@@ -48,7 +48,7 @@ main .stats p {
 main .stats label {
   width: 65px;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   opacity: var(--secondary-text-opacity);
 }
