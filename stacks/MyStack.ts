@@ -34,9 +34,9 @@ export function MyStack({ stack, app }: StackContext) {
           // Increase the timeout for generating screenshots
           timeout: "15 minutes",
           // Increase disk size
-          diskSize: "2 GB",
+          diskSize: "4 GB",
           // Increase the memory
-          memorySize: "2 GB",
+          memorySize: "4 GB",
           // Load Chrome in a Layer
           layers: [layerChromium],
           // Copy over templates and non Latin fonts
