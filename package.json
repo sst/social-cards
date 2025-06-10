@@ -1,6 +1,9 @@
 {
   "name": "social-cards",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=16 <22"
+  },
   "scripts": {
     "test": "sst test",
     "start": "sst start",

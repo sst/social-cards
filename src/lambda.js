@@ -10,7 +10,8 @@ const s3 = new S3({ apiVersion: "2006-03-01" });
 
 // This is the path to the local Chromium binary
 const YOUR_LOCAL_CHROMIUM_PATH =
-  "/tmp/localChromium/chromium/mac-1165945/chrome-mac/Chromium.app/Contents/MacOS/Chromium";
+  "/tmp/localChromium/chromium/mac_arm-1471750/chrome-mac/Chromium.app/Contents/MacOS/Chromium";
+//"/tmp/localChromium/chromium/mac-1165945/chrome-mac/Chromium.app/Contents/MacOS/Chromium";
 
 export async function handler(event) {
   const { file, template } = event.pathParameters;
