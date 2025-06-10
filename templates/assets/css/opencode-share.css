@@ -1,11 +1,12 @@
 :root {
   --text-color: #FFF;
   --background-color: black;
+  --secondary-text-opacity: 0.6;
 }
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: "SF Mono", serif;
+  font-family: "IBM Plex Mono", monospace;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
@@ -27,9 +28,9 @@ main {
   max-width: 80vw;
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     letter-spacing: -0.05rem;
-    line-height: 1.1;
+    line-height: 1.15;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -49,7 +50,7 @@ main {
       width: 65px;
       font-weight: 600;
       text-transform: uppercase;
-      opacity: 0.6;
+      opacity: var(--secondary-text-opacity);
     }
   }
 }
@@ -65,8 +66,12 @@ footer {
     gap: 0.5rem;
     img {
     }
+    span {
+      opacity: var(--secondary-text-opacity);
+    }
   }
   .right {
+    opacity: var(--secondary-text-opacity);
     text-transform: uppercase;
   }
 }

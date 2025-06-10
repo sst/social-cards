@@ -45,20 +45,20 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "SF Mono";
-  src: url("../fonts/SFMono-Regular.otf") format('opentype');
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBMPlexMono-Regular.ttf") format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "SF Mono";
-  src: url("../fonts/SFMono-Semibold.otf") format('opentype');
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBMPlexMono-SemiBold.ttf") format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "SF Mono";
-  src: url("../fonts/SFMono-Bold.otf") format('opentype');
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBMPlexMono-Bold.ttf") format('truetype');
   font-weight: 700;
   font-style: normal;
 }
