@@ -48,7 +48,8 @@ main {
 
     label {
       width: 65px;
-      /* font-weight: 600; */
+      display: inline-block;
+      font-weight: 600;
       text-transform: uppercase;
       opacity: var(--secondary-text-opacity);
     }
