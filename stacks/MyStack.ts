@@ -33,6 +33,8 @@ export function MyStack({ stack, app }: StackContext) {
           handler: "src/lambda.handler",
           // Increase the timeout for generating screenshots
           timeout: "15 minutes",
+          // Increase disk size
+          diskSize: "2 GB",
           // Increase the memory
           memorySize: "2 GB",
           // Load Chrome in a Layer
