@@ -6,7 +6,7 @@
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: "Rubik", monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
