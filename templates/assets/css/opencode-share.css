@@ -25,11 +25,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  max-width: 80vw;
+  max-width: 83vw;
 }
 
 main h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   letter-spacing: -0.05rem;
   line-height: 1.15;
   display: -webkit-box;
@@ -38,7 +38,7 @@ main h1 {
   overflow: hidden;
 }
 main .stats {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 main .stats p {
   display: flex;
@@ -46,7 +46,7 @@ main .stats p {
   gap: 0.5rem;
 }
 main .stats label {
-  width: 65px;
+  width: 5rem;
   display: inline-block;
   font-weight: 600;
   text-transform: uppercase;
@@ -63,6 +63,7 @@ footer .left {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1.25rem;
 }
 footer .left span {
   opacity: var(--secondary-text-opacity);
