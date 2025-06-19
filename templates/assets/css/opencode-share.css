@@ -38,15 +38,14 @@ main h1 {
   overflow: hidden;
 }
 main .stats {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 main .stats p {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 main .stats label {
-  width: 5rem;
   display: inline-block;
   font-weight: 600;
   text-transform: uppercase;
@@ -62,8 +61,8 @@ footer {
 footer .left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
+  gap: 0.625rem;
+  font-size: 1.5rem;
 }
 footer .left span {
   opacity: var(--secondary-text-opacity);
