@@ -19,8 +19,30 @@ div.container {
   display: flex;
   flex-direction: column;
 }
+
+header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .left {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.5rem;
+}
+header .left span {
+  opacity: var(--secondary-text-opacity);
+}
+header .right {
+  opacity: var(--secondary-text-opacity);
+  text-transform: uppercase;
+}
+
 main {
-  padding-top: 20vh;
+  padding-top: 25vh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -50,24 +72,4 @@ main .stats label {
   font-weight: 600;
   text-transform: uppercase;
   opacity: var(--secondary-text-opacity);
-}
-footer {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-footer .left {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  font-size: 1.5rem;
-}
-footer .left span {
-  opacity: var(--secondary-text-opacity);
-}
-footer .right {
-  opacity: var(--secondary-text-opacity);
-  text-transform: uppercase;
 }
