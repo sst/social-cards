@@ -39,10 +39,6 @@ header .left img {
 header .left span {
   opacity: var(--secondary-text-opacity);
 }
-header .right {
-  opacity: var(--secondary-text-opacity);
-  text-transform: uppercase;
-}
 
 main {
   padding-top: 25vh;
@@ -61,18 +57,4 @@ main h1 {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-}
-main .stats {
-  font-size: 2rem;
-}
-main .stats p {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-main .stats label {
-  display: inline-block;
-  font-weight: 600;
-  text-transform: uppercase;
-  opacity: var(--secondary-text-opacity);
 }
