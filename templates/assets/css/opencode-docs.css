@@ -4,7 +4,6 @@
   --secondary-text-opacity: 0.6;
 
   --margin: 4rem;
-  --header-height: 6.625rem;
 }
 body {
   background: var(--background-color);
@@ -24,8 +23,7 @@ div.container {
 
 header {
   flex: 0 0 auto;
-  padding: var(--margin) var(--margin) 0;
-  height: var(--header-height);
+  padding: calc(1.25 * var(--margin)) var(--margin) 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,7 +44,7 @@ header .left span {
 
 main {
   flex: 1;
-  padding: 0 var(--margin) var(--header-height) var(--margin);
+  padding-left: var(--margin);
   display: flex;
   justify-content: center;
   flex-direction: column;
