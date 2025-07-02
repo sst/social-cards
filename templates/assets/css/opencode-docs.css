@@ -61,3 +61,12 @@ main h1 {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+main p {
+  font-size: 2.125rem;
+  line-height: 1.25;
+  opacity: var(--secondary-text-opacity);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

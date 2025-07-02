@@ -14,16 +14,17 @@
       </header>
       <main>
         <h1 id="title"></h1>
+        <p id="desc"></p>
       </main>
     </div>
     <script>
       // ?title=Intro to opencode
-      // ?title=Run OpenCode in non-interactive mode by passing a prompt directly as a command-line argument. This is useful for scripting, automation, or when you want a quick answer without launching the full TUI&cost=$0.12&model=claude-sonnet-4-20250514&version=v0.1.1&id=43120e6b
-      // ?title=Run OpenCode in non-interactive mode by passing a prompt directly as a command-line argument. This is useful for scripting, automation, or when you want a quick answer without launching the full TUI&cost=$0.12&model=claude-sonnet-4-20250514,claude-sonnet-4-20250514,claude-sonnet-4-20250514,claude-sonnet-4-20250514,claude-sonnet-4-20250514&version=v0.1.1&id=43120e6b
+      // ?title=Intro to opencode&desc=Run OpenCode in non-interactive mode by passing a prompt directly as a command-line argument. This is useful for scripting, automation, or when you want a quick answer without launching the full TUI
       const urlSearchParams = new URLSearchParams(window.location.search);
       const params = Object.fromEntries(urlSearchParams.entries());
 
       document.getElementById("title").innerHTML = params.title;
+      document.getElementById("desc").innerHTML = params.desc;
     </script>
   </body>
 </html>
