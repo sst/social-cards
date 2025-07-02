@@ -2,6 +2,8 @@
   --text-color: #FFF;
   --background-color: black;
   --secondary-text-opacity: 0.6;
+
+  --margin: 4rem;
 }
 body {
   background: var(--background-color);
@@ -15,23 +17,23 @@ h1, h2, h3, h4, h5, h6 {
 
 div.container {
   height: 100vh;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
 }
 
 header {
   flex: 0 0 auto;
+  padding: calc(1.25 * var(--margin)) var(--margin) 0;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
 }
 
 header .left {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
-  font-size: 1.5rem;
+  gap: 1rem;
+  font-size: 2rem;
 }
 header .left img {
   margin-bottom: 4px;
@@ -40,15 +42,18 @@ header .left span {
   opacity: var(--secondary-text-opacity);
 }
 header .right {
+  position: relative;
+  bottom: 4px;
   opacity: var(--secondary-text-opacity);
   text-transform: uppercase;
 }
 
 main {
-  padding-top: 25vh;
   flex: 1;
+  padding-left: var(--margin);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.75rem;
   max-width: 83vw;
 }
