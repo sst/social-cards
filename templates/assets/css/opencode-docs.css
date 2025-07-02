@@ -50,6 +50,7 @@ main {
   flex-direction: column;
   gap: 0.75rem;
   max-width: 83vw;
+  padding-bottom: 1rem;
 }
 
 main h1 {
